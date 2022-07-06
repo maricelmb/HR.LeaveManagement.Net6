@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using HR.LeaveManagement.Application.DTO;
-using HR.LeaveManagement.Application.Features.LeaveType.Request;
+using HR.LeaveManagement.Application.Features.LeaveTypes.Request;
 using HR.LeaveManagement.Application.Persistence.Contracts;
 using MediatR;
 using System;
