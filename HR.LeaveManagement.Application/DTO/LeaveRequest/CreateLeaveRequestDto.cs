@@ -11,7 +11,7 @@ namespace HR.LeaveManagement.Application.DTO.LeaveRequest
     {
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public int LeavetypeId { get; set; }
+        public int LeaveTypeId { get; set; }
         public int DefaultDays { get; set; }
     }
 }
