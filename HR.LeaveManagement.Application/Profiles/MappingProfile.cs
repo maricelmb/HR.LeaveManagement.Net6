@@ -1,12 +1,7 @@
-﻿using System;
-using AutoMapper;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using HR.LeaveManagement.Domain;
+﻿using AutoMapper;
 using HR.LeaveManagement.Application.DTO;
 using HR.LeaveManagement.Application.DTO.LeaveRequest;
+using HR.LeaveManagement.Domain;
 
 namespace HR.LeaveManagement.Application.Profiles
 {
