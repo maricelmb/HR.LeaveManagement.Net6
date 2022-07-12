@@ -37,6 +37,6 @@ namespace HR.LeaveManagement.Persistence
 
         public DbSet<LeaveType> LeaveTypes { get; set; }
 
-        public DbSet<LeaveAllocation> LeaveAllocation { get; set; }
+        public DbSet<LeaveAllocation> LeaveAllocations { get; set; }
     }
 }
