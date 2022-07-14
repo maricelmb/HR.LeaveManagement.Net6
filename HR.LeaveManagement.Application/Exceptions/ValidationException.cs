@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.Exceptions
 {
-    internal class ValidationException : ApplicationException
+    public class ValidationException : ApplicationException
     {
         public List<string> Errors { get; set; } = new List<string>();
 
