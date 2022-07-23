@@ -1,4 +1,8 @@
+using HR.LeaveManagement.MVC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddHttpClient<IClient, Client>(cl => cl.BaseAddress = new Uri("https://localhost:7273"));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
