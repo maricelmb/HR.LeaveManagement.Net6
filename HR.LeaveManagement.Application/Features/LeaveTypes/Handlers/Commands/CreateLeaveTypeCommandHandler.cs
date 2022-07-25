@@ -12,11 +12,11 @@ namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
     public class CreateLeaveTypeCommandHandler : IRequestHandler<CreateLeaveTypeCommand, BaseCommandResponse>
     {
         private readonly IMapper _mapper;
-        private readonly ILeaveTypeRepository _leaveTypeRepository;
-        public CreateLeaveTypeCommandHandler (ILeaveTypeRepository leaveTypeRepository, IMapper mapper)
+        private readonly IUnitOfWork _unitOfWork;
+        public CreateLeaveTypeCommandHandler (IUnitOfWork unitOfWork, IMapper mapper)
         {
             _mapper = mapper;
-            _leaveTypeRepository = leaveTypeRepository;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<BaseCommandResponse> Handle(CreateLeaveTypeCommand request, CancellationToken cancellationToken)
@@ -35,7 +35,8 @@ namespace HR.LeaveManagement.Application.Features.LeaveTypes.Handlers.Commands
 
             var leaveType = _mapper.Map<LeaveType>(request.CreateLeaveTypeDto);
 
-            leaveType = await _leaveTypeRepository.Add(leaveType);
+            leaveType = await _unitOfWork.LeaveTypeRepository.Add(leaveType);
+            await _unitOfWork.Save();
 
             response.Success = true;
             response.Message = "Creation Successful";
