@@ -1,6 +1,7 @@
 ﻿using HR.LeaveManagement.Application.DTO;
 using HR.LeaveManagement.Application.Features.LeaveTypes.Request;
 using HR.LeaveManagement.Application.Features.LeaveTypes.Request.Commands;
+using HR.LeaveManagement.Application.Response;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -45,11 +46,11 @@ namespace HR.LeaveManagement.API.Controllers
 
         // PUT api/<ValuesController>/5
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] LeaveTypeDto leaveTypeDto)
+        public async Task<ActionResult<BaseCommandResponse>> Put([FromBody] LeaveTypeDto leaveTypeDto)
         {
             var command = new UpdateLeaveTypeCommand { LeaveTypeDto = leaveTypeDto };
-            await _mediator.Send(command);  
-            return NoContent();
+            var response = await _mediator.Send(command);
+            return Ok(response);
         }
 
         // DELETE api/<ValuesController>/5
